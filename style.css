@@ -1,0 +1,206 @@
+/* Reset global para margens, preenchimentos e modelo de caixa */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define variáveis CSS personalizadas para cores e tamanho da fonte */
+:root {
+  font-size: 62.5%; /* Define 1rem como equivalente a 10px (10px/16px = 62,5%) */
+
+  --color-background-dark: hsl(237, 22%, 20%); /* Cor de fundo escura */
+  --color-background-bottom: hsl(0, 0%, 100%); /* Cor de fundo clara */
+  --color-text-dark: hsl(249, 100%, 11%); /* Cor de texto escura */
+  --color-text-white: hsl(0, 0%, 100%); /* Cor de texto branca */
+  --color-text-light-accent: hsl(
+    250,
+    49%,
+    80%
+  ); /* Cor de destaque do texto clara */
+}
+
+/* Estilização para todo o corpo da página */
+body {
+  font-family: "Epilogue", sans-serif; /* Define a família da fonte para toda a página */
+  background-color: var(
+    --color-background-dark
+  ); /* Define a cor de fundo escura */
+}
+
+/* Estilização para um contêiner com largura máxima e centralizado horizontalmente */
+.page {
+  max-width: 33rem;
+  margin: 0 auto;
+}
+
+/* Estilização para imagens dentro do contêiner .page */
+.page img {
+  width: 100%;
+}
+
+/* Estilização para a seção do cabeçalho */
+header {
+  text-align: center;
+  margin: 10.6rem 0 8rem; /* Margens superior, nenhuma lateral e inferior */
+
+  animation-name: topDown; /* Aplica a animação "topDown" */
+  animation-duration: 700ms; /* Duração da animação de 700 milissegundos */
+}
+
+/* Estilização para parágrafos dentro da seção do cabeçalho */
+header p {
+  color: var(
+    --color-text-light-accent
+  ); /* Define a cor clara de destaque do texto */
+  font-family: Epilogue; /* Define a família da fonte */
+  font-size: 1.6rem; /* Tamanho da fonte de 1,6 rem */
+  font-weight: 400; /* Peso da fonte normal */
+  line-height: 3.2rem; /* Altura da linha de 3,2 rem */
+  letter-spacing: 0.3px; /* Espaçamento entre letras de 0,3 pixels */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+/* Estilização para o cabeçalho principal dentro da seção do cabeçalho */
+header h1 {
+  color: var(--color-text-white); /* Define a cor de texto branca */
+  font-size: 4rem; /* Tamanho da fonte de 4 rem */
+  font-weight: 800; /* Peso da fonte em negrito */
+  line-height: 4.8rem; /* Altura da linha de 4,8 rem */
+  margin-top: 1.6rem; /* Margem superior de 1,6 rem */
+}
+
+/* Estilização para a seção de conteúdo principal */
+main {
+  display: grid; /* Usa grid CSS para o layout */
+  gap: 3.2rem; /* Espaço entre os itens do grid */
+
+  animation-name: downTop; /* Aplica a animação "downTop" */
+  animation-duration: 700ms; /* Duração da animação de 700 milissegundos */
+}
+
+/* Estilização para um contêiner de cartão */
+.card {
+  position: relative; /* Define a posição como relativa */
+}
+
+/* Estilização para imagens dentro do contêiner de cartão */
+.card img {
+  height: 41.6rem; /* Altura fixa para as imagens */
+  object-fit: cover; /* Redimensiona a imagem mantendo a proporção */
+  border-radius: 0.6rem; /* Cantos arredondados com raio de 0,6 rem */
+
+  transition: all 500ms; /* Aplica uma transição suave em todas as propriedades por 500 milissegundos */
+}
+
+/* Estilização para imagens dentro do contêiner de cartão no hover */
+.card img:hover {
+  transform: scale(1.1); /* Amplia a imagem em 10% no hover */
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%); /* Aplica efeitos de filtro no hover */
+}
+
+/* Estilização para o título do cartão dentro do contêiner de cartão */
+.card h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  font-size: 4rem; /* Tamanho da fonte de 4 rem */
+  font-weight: 800; /* Peso da fonte em negrito */
+  line-height: 4.8rem; /* Altura da linha de 4,8 rem */
+
+  position: absolute; /* Define a posição como absoluta */
+  left: 2.8rem; /* Deslocamento à esquerda de 2,8 rem */
+  bottom: 5.2rem; /* Deslocamento inferior de 5,2 rem */
+
+  color: var(--color-text-white); /* Define a cor de texto branca */
+}
+
+/* Estilização para um elemento span dentro do título do cartão */
+.card h2 span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1.6rem;
+  height: 3.8rem; /* Altura fixa de 3,8 rem */
+  width: fit-content; /* Largura ajustada ao conteúdo */
+  border-radius: 2rem; /* Cantos arredondados com raio de 2 rem */
+
+  font-size: 1.6rem; /* Tamanho da fonte de 1,6 rem */
+  font-weight: 400; /* Peso da fonte normal */
+  line-height: 3.2rem; /* Altura da linha de 3,2 rem */
+
+  background-color: var(
+    --color-background-bottom
+  ); /* Define a cor de fundo clara */
+  color: var(--color-text-dark); /* Define a cor de texto escura */
+}
+
+/* Estilização para a seção do rodapé */
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 4rem auto; /* Margens superior e inferior de 4 rem, margem horizontal automática */
+
+  color: var(--color-text-white); /* Define a cor de texto branca */
+  font-size: 1rem; /* Tamanho da fonte de 1 rem */
+}
+
+/* Keyframes para a animação topDown */
+@keyframes topDown {
+  0% {
+    opacity: 0; /* Começa com 0% de opacidade (invisível) */
+    transform: translateY(-15px); /* Move para cima 15 pixels */
+  }
+
+  100% {
+    opacity: 1; /* Termina com 100% de opacidade (totalmente visível) */
+    transform: translateY(0); /* Reseta a posição vertical */
+  }
+}
+
+/* Keyframes para a animação downTop */
+@keyframes downTop {
+  0% {
+    opacity: 0; /* Começa com 0% de opacidade (invisível) */
+    transform: translateY(15px); /* Move para baixo 15 pixels */
+  }
+
+  100% {
+    opacity: 1; /* Termina com 100% de opacidade (totalmente visível) */
+    transform: translateY(0); /* Reseta a posição vertical */
+  }
+}
+
+/* Media query para telas com largura mínima de 700px */
+@media (min-width: 700px) {
+  /* Ajustes para o contêiner .page em telas maiores */
+  .page {
+    max-width: 117rem; /* Largura máxima de 117 rem */
+    padding: 0 5rem; /* Preenchimento esquerdo e direito de 5 rem */
+  }
+
+  /* Ajustes para o cabeçalho principal em telas maiores */
+  header h1 {
+    font-size: 5.6rem; /* Tamanho maior de fonte de 5,6 rem */
+  }
+
+  /* Ajustes para o layout de grid principal em telas maiores */
+  main {
+    grid-template-areas:
+      "A B B B B B"
+      "C C C C C D"; /* Define as áreas do grid para os elementos */
+  }
+
+  /* Define as áreas do grid para elementos específicos dentro do grid principal */
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+}
